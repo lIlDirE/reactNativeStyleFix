@@ -32,10 +32,11 @@ import { format } from "date-fns";
 const CommentsScreen = () => {
   const route = useRoute();
   const navigation = useNavigation();
-  const { postId, nickName, avatarUser, userId } = route.params;
+  const { postId, nickName, avatarUser, userId, postImage} = route.params;
   const [showKeyboard, setShowKeyboard] = useState(false);
   const [messageText, setMessageText] = useState("");
   const [allMessages, setAllMessages] = useState([]);
+
 
   const getAllPost = async () => {
     const ref = doc(db, "posts", postId);
@@ -61,6 +62,7 @@ const CommentsScreen = () => {
       nickName,
       userId,
       avatarUser,
+	  postImage,
     };
 
     try {
@@ -68,6 +70,7 @@ const CommentsScreen = () => {
       const docSnap = await getDoc(ref);
       if (docSnap.exists()) {
         const prevData = docSnap.data();
+
         const prevMessages = prevData.messages || {}; // Если нет сообщений, создаем пустой объект
         const updatedMessages = {
           ...prevMessages,
@@ -106,15 +109,16 @@ const CommentsScreen = () => {
             ></Ionicons>
           </View>
           <View style={styles.mainDiv}>
+		  <Image source={{ uri: postImage }} style={styles.postImg} />
             {allMessages &&
               Object.keys(allMessages).map((key) => {
                 const comment = allMessages[key];
                 return (
-                  <View key={key}>
+                  <View style={styles.commentMainDiv}key={key}>
                     <View style={styles.imgDiv}>
                       {comment.avatarUser && (
                         <Image
-                          source={comment.avatarUser}
+                          source={{uri:comment.avatarUser}}
                           style={styles.avatarImage}
                         ></Image>
                       )}
@@ -190,6 +194,13 @@ const styles = StyleSheet.create({
     color: "#BDBDBD",
   },
 
+  postImg: {
+    width: 345,
+    height: 240,
+    backgroundColor: "grey",
+    borderRadius: 8,
+  },
+
   mainDiv: {
     height: "91%",
     display: "flex",
@@ -236,6 +247,12 @@ const styles = StyleSheet.create({
     color: "#fff",
   },
 
+  commentMainDiv: {
+	display: "flex",
+	flexDirection: "row",
+	width: 345,
+  },
+
   commentsDiv: {
     width: "100%",
     display: "flex",
@@ -243,7 +260,7 @@ const styles = StyleSheet.create({
   },
 
   commentsMessageUser: {
-    marginLeft: 44,
+    marginLeft: 16,
     width: 300,
     minHeight: 70,
     paddingHorizontal: 16,
@@ -264,6 +281,12 @@ const styles = StyleSheet.create({
     // paddingTop: 16,
     // backgroundColor: "rgba(0, 0, 0, 0.03)",
     // marginTop: 24,
+  },
+
+  avatarImage: {
+	width: 28,
+	height: 28,
+	borderRadius: 28,
   },
 
   footer: {

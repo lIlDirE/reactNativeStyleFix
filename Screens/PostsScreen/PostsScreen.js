@@ -38,6 +38,7 @@ const PostsScreen = () => {
         displayName: user.displayName,
         email: user.email,
         photoURL: user.photoURL,
+		userId: user.uid,
       });
     });
   };
@@ -93,9 +94,10 @@ const PostsScreen = () => {
                         onPress={() =>
                           navigation.navigate("CommentsScreen", {
                             postId: postId,
-                            nickName: user.nickName,
-                            avatarUser: user.avatarUser,
+                            nickName: user.displayName,
+                            avatarUser: user.photoURL,
                             userId: user.userId,
+							postImage: post.avatar,
                           })
                         }
                         size={25}
