@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
   headerText: {
     color: "#212121",
     fontSize: 17,
-    fontWeight: 500,
+    fontWeight: "500",
     lineHeight: 22,
     letterSpacing: -0.408,
     marginBottom: 10,
@@ -203,13 +203,13 @@ const styles = StyleSheet.create({
 
   avatarName: {
 	fontSize: 13,
-fontWeight: 700,
+fontWeight: "700",
   },
 
   avatarEmail: {
 	color: 'rgba(33, 33, 33, 0.80)',
 	fontSize: 11,
-	fontWeight: 400,
+	fontWeight: "400",
   },
 
   avatarImg: {
@@ -240,7 +240,7 @@ fontWeight: 700,
   postMessage: {
     marginTop: 8,
     fontSize: 16,
-    fontWeight: 500,
+    fontWeight: "500",
     display: "flex",
     alignSelf: "flex-start",
   },

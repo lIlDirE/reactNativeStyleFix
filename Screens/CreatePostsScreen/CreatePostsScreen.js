@@ -291,7 +291,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     color: "#BDBDBD",
     fontSize: 16,
-    fontWeight: 400,
+    fontWeight: "400",
     justifyContent: "flex-start",
   },
 
@@ -309,7 +309,7 @@ const styles = StyleSheet.create({
   headerText: {
     color: "#212121",
     fontSize: 17,
-    fontWeight: 500,
+    fontWeight: "500",
     lineHeight: 22,
     letterSpacing: -0.408,
     marginBottom: 10,
@@ -474,7 +474,7 @@ const styles = StyleSheet.create({
     paddingLeft: 8,
     color: "#212121",
     fontSize: 16,
-    fontWeight: 400,
+    fontWeight: "400",
   },
 
   geoIcon: {

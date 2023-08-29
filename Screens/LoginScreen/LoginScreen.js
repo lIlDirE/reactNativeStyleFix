@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
     color: "#212121",
     textAlign: "center",
     fontSize: 30,
-    fontWeight: 500,
+    fontWeight: "500",
     letterSpacing: 0.3,
   },
   input: {
@@ -227,14 +227,14 @@ const styles = StyleSheet.create({
     color: "#1B4371",
     textAlign: `center`,
     fontSize: 16,
-    fontWeight: 400,
+    fontWeight: "400",
     paddingRight: 5,
   },
   registerLink: {
     color: "#1B4371",
     textAlign: `center`,
     fontSize: 16,
-    fontWeight: 400,
+    fontWeight: "400",
     textDecorationLine: "underline",
   },
   showPasswordButton: {
